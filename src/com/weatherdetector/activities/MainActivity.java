@@ -52,7 +52,7 @@ public class MainActivity extends Activity implements
 	private ImageView weatherImage;
 	private Validation validater;
 
-	float teminF, timeC;
+	float timeFahrenheit, timeCelsius;
 	int temperatureUnit_flag = 0;
 
 	@Override
@@ -175,17 +175,17 @@ public class MainActivity extends Activity implements
 			public void setList(Temperature weatherTemperature) {
 				// TODO Auto-generated method stub
 
-				teminF = Float.parseFloat(weatherTemperature.getTemperature());
+				timeFahrenheit = Float.parseFloat(weatherTemperature.getTemperature());
 				if (temperatureUnit_flag == 0) {
 					DecimalFormat numberFormat = new DecimalFormat("#.0");
 
-					String temF = numberFormat.format(teminF);
+					String temF = numberFormat.format(timeFahrenheit);
 					temp.setText("" + temF + "F");
 				} else if (temperatureUnit_flag == 1) {
-					timeC = convertFahrenheitToCelcius(teminF);
+					timeCelsius = convertFahrenheitToCelcius(timeFahrenheit);
 					DecimalFormat numberFormat = new DecimalFormat("#.0");
 
-					String tempC = numberFormat.format(timeC);
+					String tempC = numberFormat.format(timeCelsius);
 					temp.setText("" + tempC + "C");
 				}
 				String atmospher = weatherTemperature.getAtmoshphere();
@@ -293,11 +293,11 @@ public class MainActivity extends Activity implements
 		case R.id.degC:
 			temperatureUnit_flag = 1;
 
-			timeC = convertFahrenheitToCelcius(teminF);
+			timeCelsius = convertFahrenheitToCelcius(timeFahrenheit);
 			DecimalFormat numberFormat = new DecimalFormat("#.0");
 
-			String temCC = numberFormat.format(timeC);
-			// String tempp=timeC+"";
+			String temCC = numberFormat.format(timeCelsius);
+			// String tempp=timeCelsius+"";
 			temp.setText("" + temCC + "C");
 
 			break;
@@ -306,7 +306,7 @@ public class MainActivity extends Activity implements
 			if (temperatureUnit_flag == 1) {
 				DecimalFormat numberFormatt = new DecimalFormat("#.0");
 
-				double temppp = convertCelciusToFahrenheit(timeC);
+				double temppp = convertCelciusToFahrenheit(timeCelsius);
 				String temFF = numberFormatt.format(temppp);
 				temp.setText("" + temFF + "F");
 			}
