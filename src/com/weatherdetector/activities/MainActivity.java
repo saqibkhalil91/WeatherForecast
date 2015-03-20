@@ -53,7 +53,7 @@ public class MainActivity extends Activity implements
 	private Validation validater;
 
 	float teminF, timeC;
-	int flag = 0;
+	int temperatureUnit_flag = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -176,12 +176,12 @@ public class MainActivity extends Activity implements
 				// TODO Auto-generated method stub
 
 				teminF = Float.parseFloat(weatherTemperature.getTemperature());
-				if (flag == 0) {
+				if (temperatureUnit_flag == 0) {
 					DecimalFormat numberFormat = new DecimalFormat("#.0");
 
 					String temF = numberFormat.format(teminF);
 					temp.setText("" + temF + "F");
-				} else if (flag == 1) {
+				} else if (temperatureUnit_flag == 1) {
 					timeC = convertFahrenheitToCelcius(teminF);
 					DecimalFormat numberFormat = new DecimalFormat("#.0");
 
@@ -291,7 +291,7 @@ public class MainActivity extends Activity implements
 
 			break;
 		case R.id.degC:
-			flag = 1;
+			temperatureUnit_flag = 1;
 
 			timeC = convertFahrenheitToCelcius(teminF);
 			DecimalFormat numberFormat = new DecimalFormat("#.0");
@@ -303,7 +303,7 @@ public class MainActivity extends Activity implements
 			break;
 
 		case R.id.degF:
-			if (flag == 1) {
+			if (temperatureUnit_flag == 1) {
 				DecimalFormat numberFormatt = new DecimalFormat("#.0");
 
 				double temppp = convertCelciusToFahrenheit(timeC);
