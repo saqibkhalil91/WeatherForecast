@@ -155,15 +155,16 @@ public class MainActivity extends Activity implements
 
 	private void showTemperatureDetail() {
 		String cityName;
+		String validateMessage = getResources().getString(R.string.validateMessage);
 		cityName = place.getText().toString();
 		api = new CityTemperatureAsyncTask(this);
 		String city = cityName.trim();
 		if (city.equals("null") || city.contains(".") || city.contains(",")
 				|| city.length() == 3) {
-			Toast.makeText(this, "Enter correct city Name", Toast.LENGTH_LONG)
+			Toast.makeText(this,validateMessage, Toast.LENGTH_LONG)
 					.show();
 		} else if (validater.validate(city)) {
-			Toast.makeText(this, "Enter correct city Name", Toast.LENGTH_LONG)
+			Toast.makeText(this, validateMessage, Toast.LENGTH_LONG)
 					.show();
 		} else {
 			api.execute(city);
@@ -177,26 +178,26 @@ public class MainActivity extends Activity implements
 
 				timeFahrenheit = Float.parseFloat(weatherTemperature.getTemperature());
 				if (temperatureUnit_flag == 0) {
-					DecimalFormat numberFormat = new DecimalFormat("#.0");
+					DecimalFormat numberFormat = new DecimalFormat(getResources().getString(R.string.decimalFormat));
 
 					String temF = numberFormat.format(timeFahrenheit);
 					temp.setText("" + temF + "F");
 				} else if (temperatureUnit_flag == 1) {
 					timeCelsius = convertFahrenheitToCelcius(timeFahrenheit);
-					DecimalFormat numberFormat = new DecimalFormat("#.0");
+					DecimalFormat numberFormat = new DecimalFormat(getResources().getString(R.string.decimalFormat));
 
 					String tempC = numberFormat.format(timeCelsius);
 					temp.setText("" + tempC + "C");
 				}
 				String atmospher = weatherTemperature.getAtmoshphere();
-				atmosphere.setText("Atmosphere is " + atmospher);
+				atmosphere.setText(getResources().getString(R.string.atmosphere) + atmospher);
 				setImageResource(atmospher);
-				humidity.setText("Humidity is "
+				humidity.setText(getResources().getString(R.string.Humidity)
 						+ weatherTemperature.getHumidity());
-				visibility.setText("Visibility is "
+				visibility.setText(getResources().getString(R.string.Visibility)
 						+ weatherTemperature.getVisibility());
-				windspeed.setText("Wind Speed is "
-						+ weatherTemperature.getWindSpeed() + "mph");
+				windspeed.setText(getResources().getString(R.string.Wind)
+						+ weatherTemperature.getWindSpeed() + getResources().getString(R.string.mph));
 
 			}
 		});

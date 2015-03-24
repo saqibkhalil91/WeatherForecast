@@ -8,5 +8,11 @@
     <string name="title_activity_big_cities_temp">BigCitiesTemp</string>
     <string name="title_activity_five_cities_temp">FiveCitiesTemp</string>
     <string name="title_activity_temp_map">TempMap</string>
-
+     <string name="validateMessage">Enter correct city Name</string>
+	<string name="atmosphere">Atmoshpere is \f</string>
+	<string name="Humidity">Humidity is \f</string>
+	<string name="Visibility">Visibility is \f</string>
+	<string name="Wind">Wind Speed is \f</string>
+	<string name="decimalFormat">#.0</string>
+		<string name="mph">mph</string>
 </resources>
