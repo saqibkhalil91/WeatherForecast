@@ -138,7 +138,7 @@ public class MainActivity extends Activity implements
 			if (checkingConnection == true) {
 				LocationFound();
 			} else {
-				NOInterNet();
+				internetNotFound();
 			}
 			// search action
 			return true;
@@ -202,7 +202,7 @@ public class MainActivity extends Activity implements
 		});
 	}
 
-	private void NOInterNet() {
+	private void internetNotFound() {
 
 		AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
 		helpBuilder.setTitle("Internet Issue");
@@ -239,7 +239,7 @@ public class MainActivity extends Activity implements
 				}
 
 			} else {
-				NOInterNet();
+				internetNotFound();
 
 			}
 
@@ -285,7 +285,7 @@ public class MainActivity extends Activity implements
 				}
 
 			} else {
-				NOInterNet();
+				internetNotFound();
 
 			}
 
